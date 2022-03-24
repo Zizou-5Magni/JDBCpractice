@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class JdbcInsertExample {
+public class jdbcDeleteExample {
 	public static void main(String[] args) {
 		//load and register the jdbc into memory
 		//One way to do it is:
@@ -24,7 +24,7 @@ public class JdbcInsertExample {
 		String url = "jdbc:mysql://localhost:3306/test";	//url to connect to DB
 		String username = "root";
 		String password = "ahmedAk88*";	// DElETE later: passwords should NOT be hardcoded into the program.
-		String insertCommand = "INSERT INTO employee VALUES(111, 'Jimmy', 'Data Manager')";
+		String deleteCommand = "DELETE FROM employee WHERE empid= 111";
 		int i = 0; //To store the execute and update method
 		Connection cn = null;	//import from java.sql package
 		Statement st = null;	//import from java.sql package
@@ -32,8 +32,8 @@ public class JdbcInsertExample {
 		try {
 			cn = DriverManager.getConnection(url,username,password);	//loads jdbc driver into memory to connects to db
 			st = cn.createStatement();	//method used to execute sql commands
-			i = st.executeUpdate(insertCommand);	//method used to execute sql commands
-			System.out.println(i + "record(s) added..");
+			i = st.executeUpdate(deleteCommand);	//method used to execute sql commands
+			System.out.println(i + "record(s) deleted successfully..");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
